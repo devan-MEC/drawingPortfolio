@@ -5,7 +5,12 @@ import tom from "./img/majortom.png";
 
 function App() {
   return (
-    <div className="font-ubuntu">
+    <div className="font-ubuntu flex flex-row flex-wrap">
+      <DisplayCard picture={tom} tag="Space Oddity" />
+      <DisplayCard picture={tom} tag="Space Oddity" />
+      <DisplayCard picture={tom} tag="Space Oddity" />
+      <DisplayCard picture={tom} tag="Space Oddity" />
+      <DisplayCard picture={tom} tag="Space Oddity" />
       <DisplayCard picture={tom} tag="Space Oddity" />
     </div>
   );
