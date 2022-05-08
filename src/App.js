@@ -1,8 +1,14 @@
 import logo from "./logo.svg";
 import "./App.css";
+import { DisplayCard } from "./components/DisplayCard";
+import tom from "./img/majortom.png";
 
 function App() {
-  return <h1 className="text-3xl font-bold underline">Hello world!</h1>;
+  return (
+    <div className="font-ubuntu">
+      <DisplayCard picture={tom} tag="Space Oddity" />
+    </div>
+  );
 }
 
 export default App;
