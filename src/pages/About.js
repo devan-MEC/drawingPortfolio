@@ -51,14 +51,15 @@ export const About = () => {
         <p className="font-bold text-xl">ABOUT ME</p>
         <p className="w-1/2 self-center">
           Heyy, I'm Devan and I like to draw pictures that have their themes
-          centered around certain songs that I like listening to! The scribbles
-          are nothing fancy but nonetheless, it's nice to be able to put stuff
-          somewhere that isn't instagram :D
+          centered around certain songs that I like listening to! These doodles
+          are nothing fancy but nonetheless, it's nice to be able to put what I
+          draw somewhere that isn't instagram :D
         </p>
         <p className="font-bold text-xl mt-2">CONTACT</p>
         <p className="w-1/2 self-center">
-          Not sure why you'd want to, but if you want to shoot me a message for
-          whatever reason, here's how you can reach me :
+          Not sure why you'd want to, but if you want to get in contact for
+          whatever reason or maybe to tell me about that one awesome song you've
+          listened to, here's how you can reach me:
         </p>
 
         <div className="mt-4 w-1/2">
@@ -78,7 +79,7 @@ export const About = () => {
                 type="email"
                 value={email}
                 className="border-2  p-2 rounded-md"
-                placeholder="Email (Optional)"
+                placeholder="Email (OPTIONAL)"
                 onChange={onChange}
               />
               <textarea
@@ -93,7 +94,7 @@ export const About = () => {
               />
               <button
                 type="submit"
-                className="bg-black p-2 rounded-md text-white"
+                className="bg-black p-2 rounded-md text-white hover:text-white hover:bg-red-600"
               >
                 SEND
               </button>
