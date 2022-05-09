@@ -49,20 +49,20 @@ export const About = () => {
       <Banner />
       <div className="bg-black text-white flex flex-col justify-center items-center pt-8 font-mono top-1/2 ">
         <p className="font-bold text-xl">ABOUT ME</p>
-        <p className="w-1/2 self-center">
+        <p className="px-4  lg:w-1/2 lg:px-0 self-center">
           Heyy, I'm Devan and I like to draw pictures that have their themes
           centered around certain songs that I like listening to! These doodles
           are nothing fancy but nonetheless, it's nice to be able to put what I
           draw somewhere that isn't instagram :D
         </p>
         <p className="font-bold text-xl mt-2">CONTACT</p>
-        <p className="w-1/2 self-center">
+        <p className="px-4  lg:w-1/2 lg:px-0 self-center">
           Not sure why you'd want to, but if you want to get in contact for
           whatever reason or maybe to tell me about that one awesome song you've
           listened to, here's how you can reach me:
         </p>
 
-        <div className="mt-4 w-1/2">
+        <div className="mt-4 px-2 w-full lg:w-1/2">
           <form onSubmit={sendEmail}>
             <div className="flex flex-col bg-white p-2 space-y-2 rounded-md text-black">
               <input
