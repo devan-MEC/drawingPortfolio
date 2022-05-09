@@ -7,7 +7,8 @@ function App() {
   return (
     <div className="flex flex-col justify-center items-center font-ubuntu ">
       <div className="max-w-7xl">
-        <div className="font-ubuntu flex flex-row flex-wrap justify-center items-center -m-4 pb-12 ">
+        {/* <div className="font-ubuntu flex flex-row flex-wrap justify-center items-center -m-4 pb-12  "> */}
+        <div className="font-ubuntu grid grid-cols-3  ">
           <DisplayCard picture={tom} tag="Space Oddity" />
           <DisplayCard picture={tom} tag="Space Oddity" />
           <DisplayCard picture={tom} tag="Space Oddity" />
