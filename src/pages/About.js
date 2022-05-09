@@ -4,6 +4,8 @@ import emailjs from "@emailjs/browser";
 import { useState } from "react";
 
 export const About = () => {
+  const [loading, setLoading] = useState(false);
+  const [sendstatus, setSendstatus] = useState("SEND");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -19,7 +21,9 @@ export const About = () => {
   const { name, email, message } = formData;
   console.log(name, email, message);
   const handleChange = (e) => {};
-  const sendEmail = (e) => {
+  const sendEmail = async (e) => {
+    setSendstatus("SENDING...");
+    setLoading(true);
     e.preventDefault();
 
     const templateParams = {
@@ -37,6 +41,8 @@ export const About = () => {
       .then(
         (response) => {
           console.log("SUCCESS!", response.status, response.text);
+          setLoading(false);
+          setSendstatus("SEND");
           alert("Message has been sent!");
         },
         (err) => {
@@ -94,9 +100,10 @@ export const About = () => {
               />
               <button
                 type="submit"
-                className="bg-black p-2 rounded-md text-white hover:text-white hover:bg-red-600"
+                disabled={loading}
+                className="bg-black p-2 rounded-md text-white hover:text-white hover:bg-red-600 disabled:bg-gray-600    "
               >
-                SEND
+                {sendstatus}
               </button>
             </div>
           </form>
