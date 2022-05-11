@@ -2,7 +2,7 @@ import React from "react";
 import { Banner } from "../components/Banner";
 import { DisplayCard } from "../components/DisplayCard";
 import tom from "../img/majortom.png";
-import littetalks from "../img/littetalks.png";
+import littetalks from "../img/littletalks.png";
 
 export const Home = () => {
   return (
