@@ -5,6 +5,7 @@ import { db, storage } from "../firebase-config";
 import { addDoc, collection } from "firebase/firestore";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { v4 } from "uuid";
+import { Footer } from "../components/Footer";
 export const AddImage = ({ isAuth }) => {
   let navigate = useNavigate();
   const [imageUpload, setImageUpload] = useState(null);

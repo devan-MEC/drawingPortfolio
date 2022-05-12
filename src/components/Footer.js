@@ -43,8 +43,8 @@ export const Footer = ({ setIsAuth }) => {
           sudo
         </button>
       ) : (
-        <div className="flex space-x-4 text-green-400">
-          <p className="text-green-400"> root@deb:~$</p>
+        <div className="flex space-x-4 text-red-600">
+          <p className=""> root@deb:~$</p>
           <input
             className="px-1  text-white bg-black focus:outline-none"
             onChange={(e) => {
