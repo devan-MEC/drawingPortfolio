@@ -5,7 +5,7 @@ export const DisplayCard = (props) => {
   return (
     <div className="relative  m-3      overflow-hidden border-2">
       <div className="w-full h-full object-cover  block ">
-        <div className="transition-opacity ease-in-out delay-150 hover:opacity-10 ">
+        <div className=" hover:opacity-10 ">
           <img className=" block object-cover" src={picture} alt={tag} />
         </div>
         <div className="bg-black">

@@ -3,7 +3,7 @@ import { Banner } from "../components/Banner";
 import emailjs from "@emailjs/browser";
 import { useState } from "react";
 
-export const About = () => {
+export const About = ({ isAuth }) => {
   const [loading, setLoading] = useState(false);
   const [sendstatus, setSendstatus] = useState("SEND");
   const [formData, setFormData] = useState({
@@ -52,7 +52,7 @@ export const About = () => {
   };
   return (
     <div className="bg-black h-screen ">
-      <Banner />
+      <Banner isAuth={isAuth} />
       <div className="bg-black text-white flex flex-col justify-center items-center pt-8 font-mono top-1/2 ">
         <p className="font-bold text-xl">ABOUT ME</p>
         <p className="px-4  lg:w-1/2 lg:px-0 self-center">
