@@ -17,10 +17,10 @@ export const Footer = ({ setIsAuth }) => {
 
   const submitDetails = () => {
     const details = input.split("#");
-    console.log(details);
+    // console.log(details);
     const getUser = async () => {
       const data = await getDocs(rootdetails);
-      console.log(data.docs[0].data());
+      // console.log(data.docs[0].data());
       if (details[0] !== "" && details[1] !== "") {
         if (
           details[0] == data.docs[0].data().user &&
