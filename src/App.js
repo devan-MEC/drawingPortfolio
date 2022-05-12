@@ -13,7 +13,7 @@ import { useState } from "react";
 function App() {
   const [isAuth, setIsAuth] = useState(false);
   return (
-    <>
+    <div className="h-full relative">
       <BrowserRouter>
         <Routes>
           <Route
@@ -25,7 +25,7 @@ function App() {
           {/* <Route path="/sudo" element={<Sudo />} /> */}
         </Routes>
       </BrowserRouter>
-    </>
+    </div>
   );
 }
 

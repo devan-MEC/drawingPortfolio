@@ -43,15 +43,15 @@ export const Footer = ({ setIsAuth }) => {
           sudo
         </button>
       ) : (
-        <div className="flex space-x-2">
+        <div className="flex space-x-4 text-green-400">
+          <p className="text-green-400"> root@deb:~$</p>
           <input
-            className="px-1  text-black"
-            placeholder="enter password"
+            className="px-1  text-white bg-black focus:outline-none"
             onChange={(e) => {
               setInput(e.target.value);
             }}
           />{" "}
-          <button onClick={submitDetails}>submit</button>
+          <button onClick={submitDetails}>login</button>
           <button
             onClick={() => {
               setIsClicked(false);

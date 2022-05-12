@@ -14,42 +14,42 @@ export const AddImage = ({ isAuth }) => {
 
   const imageref = collection(db, "images");
 
-  // useEffect(() => {
-  //   if (!isAuth) {
-  //     navigate("/");
-  //   }
-  // });
+  useEffect(() => {
+    if (!isAuth) {
+      navigate("/");
+    }
+  });
 
-  const addImage = async () => {
-    if (imageUpload == null) return;
-    console.log(imageUpload);
-    const imageRef = ref(storage, `images/${imageUpload.name + v4()}`);
-    uploadBytes(imageRef, imageUpload);
+  // const addImage = async () => {
+  //   if (imageUpload == null) return;
+  //   console.log(imageUpload);
+  //   const imageRef = ref(storage, `images/${imageUpload.name + v4()}`);
+  //   uploadBytes(imageRef, imageUpload);
+  //   await addDoc(imageref, {
+  //     name,
+  //     artist,
+  //   });
+  // };
+  const finaluploadfunc = async (iurl) => {
     await addDoc(imageref, {
+      imageurl: iurl,
       name,
       artist,
     });
   };
-  const finaluploadfunc = async () => {
-    await addDoc(imageref, {
-      imageurl,
-      name,
-      artist,
-    });
-  };
+
   const uploadImage = async () => {
     if (imageUpload == null) return;
-    console.log(imageUpload);
+    // console.log(imageUpload);
     const imageRef = ref(storage, `images/  ${imageUpload.name + v4()}`);
     uploadBytes(imageRef, imageUpload).then((snapshot) => {
       getDownloadURL(snapshot.ref).then((url) => {
-        console.log(url);
+        console.log(`url before calling setState is ${url}`);
         setImageurl(url);
+        finaluploadfunc(url);
+        console.log(`url after calling setState is ${url}`);
       });
       alert("image uploaded");
-
-      console.log(`image url is ${imageurl}`);
-      finaluploadfunc();
     });
   };
 
