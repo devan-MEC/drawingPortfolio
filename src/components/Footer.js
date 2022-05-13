@@ -39,7 +39,7 @@ export const Footer = ({ setIsAuth }) => {
   return (
     <div className="font-mono flex justify-end bg-black  px-2 text-white relative ">
       {!isClicked ? (
-        <button onClick={onClick} className="text-black">
+        <button onClick={onClick} className="text-white">
           sudo
         </button>
       ) : (

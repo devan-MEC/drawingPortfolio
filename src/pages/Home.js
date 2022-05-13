@@ -15,7 +15,7 @@ export const Home = ({ isAuth, setIsAuth }) => {
   useEffect(() => {
     const getImgList = async () => {
       const data = await getDocs(listRef);
-      // console.log("image data", data);
+      console.log("image data", data);
       setImgList(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
       console.log(imgList);
     };
