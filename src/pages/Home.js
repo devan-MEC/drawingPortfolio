@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Banner } from "../components/Banner";
 import { DisplayCard } from "../components/DisplayCard";
-import tom from "../img/majortom.png";
-import littetalks from "../img/littletalks.png";
 import { Footer } from "../components/Footer";
 import { db } from "../firebase-config";
 import { collection, getDocs } from "firebase/firestore";
 
 export const Home = ({ isAuth, setIsAuth }) => {
   const [imgList, setImgList] = useState([]);
-
+  const [randstate, setRandstate] = useState(0);
   const listRef = collection(db, "images");
 
   useEffect(() => {
@@ -21,7 +19,7 @@ export const Home = ({ isAuth, setIsAuth }) => {
     };
 
     getImgList();
-  }, []);
+  }, [randstate]);
 
   return (
     <>
@@ -35,7 +33,12 @@ export const Home = ({ isAuth, setIsAuth }) => {
                 <DisplayCard
                   key={item.id}
                   picture={item.imageurl}
+                  imagename={item.imagename}
                   tag={item.name}
+                  isAuth={isAuth}
+                  iid={item.id}
+                  randstate={randstate}
+                  setRandstate={setRandstate}
                 />
               );
             })}

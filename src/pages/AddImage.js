@@ -5,7 +5,7 @@ import { db, storage } from "../firebase-config";
 import { addDoc, collection } from "firebase/firestore";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { v4 } from "uuid";
-import { Footer } from "../components/Footer";
+
 export const AddImage = ({ isAuth }) => {
   let navigate = useNavigate();
   const [imageUpload, setImageUpload] = useState(null);
@@ -31,9 +31,10 @@ export const AddImage = ({ isAuth }) => {
   //     artist,
   //   });
   // };
-  const finaluploadfunc = async (iurl) => {
+  const finaluploadfunc = async (iurl, iname) => {
     await addDoc(imageref, {
       imageurl: iurl,
+      imagename: iname,
       name,
       artist,
     });
@@ -42,12 +43,13 @@ export const AddImage = ({ isAuth }) => {
   const uploadImage = async () => {
     if (imageUpload == null) return;
     // console.log(imageUpload);
-    const imageRef = ref(storage, `images/  ${imageUpload.name + v4()}`);
+    const imgname = `images/${imageUpload.name + v4()}`;
+    const imageRef = ref(storage, imgname);
     uploadBytes(imageRef, imageUpload).then((snapshot) => {
       getDownloadURL(snapshot.ref).then((url) => {
         console.log(`url before calling setState is ${url}`);
         setImageurl(url);
-        finaluploadfunc(url);
+        finaluploadfunc(url, imgname);
         console.log(`url after calling setState is ${url}`);
       });
       alert("image uploaded");
