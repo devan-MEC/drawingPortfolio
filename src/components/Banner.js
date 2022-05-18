@@ -6,7 +6,7 @@ export const Banner = ({ isAuth }) => {
     <div className="font-mono flex flex-row justify-between items-center bg-black text-white px-4 py-2 space-x-2  sticky top-0 z-40">
       <div>
         <div>
-          WhackA<p className="inline-block text-red-600">Doodle</p>!
+          WhackA<p className="inline-block text-red-600">Doodle</p>
         </div>
         {/* <p>I like to draw!</p>
          */}
