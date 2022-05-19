@@ -1,19 +1,21 @@
 import { getDoc, doc, deleteDoc } from "firebase/firestore";
-import React from "react";
+import React, { useState } from "react";
 import { db, storage } from "../firebase-config";
 import { deleteObject, ref } from "firebase/storage";
+import emailjs from "@emailjs/browser";
 
 export const DisplayCard = (props) => {
   const { picture, tag, isAuth, iid, imagename, randstate, setRandstate } =
     props;
+  const [clicked, setClicked] = useState(false);
   //delete function
   const deleteItem = async (itemid) => {
     const itemDoc = doc(db, "images", itemid);
     const docSnap = await getDoc(itemDoc);
 
-    console.log("snapshot is", docSnap.data());
+    // console.log("snapshot is", docSnap.data());
     const imgname = docSnap.data().imagename;
-    console.log("name of image to be deleted", imgname);
+    // console.log("name of image to be deleted", imgname);
 
     await deleteDoc(itemDoc);
     const imgReference = ref(storage, imagename);
@@ -27,10 +29,21 @@ export const DisplayCard = (props) => {
       });
     setRandstate(randstate + 1);
   };
+  //toggle func
+  const toggle = () => {
+    let negated = !clicked;
+    setClicked(negated);
+    console.log("image clicked and clicked is set to ", clicked);
+  };
   return (
     <div className="relative  m-3  flex flex-col    overflow-hidden border-2">
-      <div className="w-full h-full object-cover   block  ">
-        <div className=" hover:opacity-10 ">
+      <div
+        onClick={() => {
+          toggle();
+        }}
+        className="w-full h-full object-cover   block  "
+      >
+        <div className={!clicked ? "" : "opacity-10"}>
           <img className=" block object-cover" src={picture} alt={tag} />
         </div>
         <div className="bg-black">
@@ -41,7 +54,7 @@ export const DisplayCard = (props) => {
           </div>
         </div>
       </div>
-      {console.log(isAuth)}
+      {/* {console.log(isAuth)} */}
       {isAuth && (
         <button
           onClick={() => {
