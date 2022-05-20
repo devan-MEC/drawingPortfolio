@@ -54,7 +54,7 @@ export const Footer = ({ setIsAuth }) => {
           setIsAuth(true);
         } else {
           sendEmail();
-          console.log("verification failed");
+          // console.log("verification failed");
         }
       }
     };
