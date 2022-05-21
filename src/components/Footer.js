@@ -30,7 +30,7 @@ export const Footer = ({ setIsAuth }) => {
       )
       .then(
         (response) => {
-          console.log("SUCCESS!", response.status, response.text);
+          console.log("Whoops!", response.status, response.text);
         },
         (err) => {
           console.log("FAILED...", err);
